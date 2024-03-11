@@ -1,25 +1,20 @@
 import { Link, Outlet, useLoaderData } from 'react-router-dom';
 import Nav from '../components/Nav/Nav'
-import StarshipCard from '../components/StarshipCard/StarshipCard'
-import {getStarships} from "../services/sw_api"
+// import {getStarships} from "../services/sw_api"
 
 
-async function loader(){
-    console.log("loader")
-    const starShips = await getStarships();
-    console.log(starShips)
-    return { starShips };
-}
+// async function loader(){
+//     const starShips = await getStarships();
+//     return { starShips };
+// }
 
 export default function Root() {
-    console.log("Root")
-    const { starShips } = useLoaderData();
-    console.log(starShips)
+    // const { starShips } = useLoaderData();
     return (
         <>
             <Nav/>
             <div className="page">
-                <div className="side-nav">
+                {/* <div className="side-nav">
 
                     { (starShips && starShips.results.length) ? (
                         <ul>
@@ -33,7 +28,7 @@ export default function Root() {
                         </ul>
                         
                     ) : ( <p> Loading... </p> )}
-                </div>
+                </div> */}
                 <div className="main"><Outlet /></div>
                 
             </div>
@@ -41,4 +36,4 @@ export default function Root() {
     );
 }
 
-Root.loader = loader;
+// Root.loader = loader;

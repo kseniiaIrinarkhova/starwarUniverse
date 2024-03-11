@@ -5,6 +5,7 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Root from './routes/root.jsx'
 import Starships from './routes/starships.jsx'
+import Starship from './routes/starship.jsx'
 //routes related imports
 import ErrorPage from './components/ErrorPage/ErrorPage.jsx'
 
@@ -14,13 +15,21 @@ const router = createBrowserRouter([
     path: '/',
     element: <Root />,
     errorElement: <ErrorPage />,
-    loader: Root.loader,
     children: [
       {
-        path: '/starships/:shipId',
+        path: '/starships',
         element: <Starships />,
         loader: Starships.loader,
+        children:[
+          {
+            path: '/starships/:shipId',
+            element: <Starship />,
+            loader: Starship.loader,
+          }
+        ],
+
       },
+      
     ],
   },
 ]);

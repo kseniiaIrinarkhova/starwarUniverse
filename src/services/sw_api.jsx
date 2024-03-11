@@ -1,9 +1,10 @@
 import axios from 'axios';
 
+const API_URL = 'https://www.swapi.tech/api/'
 
 async function getStarships() {
     //create simple url
-    const url = `${import.meta.env.VITE_API_URL}/starships/`;
+    const url = `${API_URL}/starships/`;
     //get first 10 starships
     const response = await axios.get(url);
     //return response data
@@ -12,7 +13,7 @@ async function getStarships() {
 
 async function getShip( shipId){
     //create simple url
-    const url = `${import.meta.env.VITE_API_URL}/starships/${shipId}`;
+    const url = `${API_URL}/starships/${shipId}`;
     //get star ship data
     const response = await axios.get(url);
     console.log(response)

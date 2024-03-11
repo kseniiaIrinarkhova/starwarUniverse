@@ -1,4 +1,4 @@
-import { Outlet, useLoaderData } from 'react-router-dom';
+import { Link, Outlet, useLoaderData } from 'react-router-dom';
 import Nav from '../components/Nav/Nav'
 import StarshipCard from '../components/StarshipCard/StarshipCard'
 import {getStarships} from "../services/sw_api"
@@ -25,7 +25,9 @@ export default function Root() {
                         <ul>
                           {
                                 starShips.results.map((ship) => (
-                                <li key={ship.uid}>{ship.name}</li>
+                                <li key={ship.uid}>
+                                        <Link to={`starships/${ship.uid}`}>{ship.name}</Link>
+                                    </li>
                                 ))
                           }  
                         </ul>

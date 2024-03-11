@@ -1,7 +1,8 @@
+import './StarshipCard.css';
 
 export default function StarshipCard({shipData}) {
   return (
-    <div>
+    <div className="starship">
       <h1>{shipData.name}</h1>
       <table>
         <tbody>

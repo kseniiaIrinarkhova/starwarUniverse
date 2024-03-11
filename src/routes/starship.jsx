@@ -12,11 +12,11 @@ export default function Starship() {
     const { starship } = useLoaderData();
     return (
 
-        <div>
+        <>
             {
                 (starship && starship.result) ? <StarshipCard shipData={starship.result.properties} /> : (<p>Data is not available</p>)
             }
-        </div>
+        </>
     )
 }
 

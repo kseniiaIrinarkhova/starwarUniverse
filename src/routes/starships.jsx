@@ -1,4 +1,4 @@
-import { Link, Outlet, useLoaderData } from 'react-router-dom';
+import { NavLink, Outlet, useLoaderData } from 'react-router-dom';
 import Nav from '../components/Nav/Nav'
 import { getStarships } from "../services/sw_api"
 
@@ -19,7 +19,13 @@ export default function Starships() {
                             {
                                 starShips.results.map((ship) => (
                                     <li key={ship.uid}>
-                                        <Link to={`/starships/${ship.uid}`}>{ship.name}</Link>
+                                        <NavLink to={`/starships/${ship.uid}`} className={({ isActive, isPending }) =>
+                                            isActive
+                                                ? "active"
+                                                : isPending
+                                                    ? "pending"
+                                                    : ""
+                                        } >{ship.name}</NavLink>
                                     </li>
                                 ))
                             }

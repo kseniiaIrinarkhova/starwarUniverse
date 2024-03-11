@@ -4,7 +4,7 @@ import StarshipCard from '../components/StarshipCard/StarshipCard'
 import {getStarships} from "../services/sw_api"
 
 
-export async function loader(){
+async function loader(){
     console.log("loader")
     const starShips = await getStarships();
     console.log(starShips)
@@ -40,3 +40,5 @@ export default function Root() {
         </>
     );
 }
+
+Root.loader = loader;

@@ -1,5 +1,6 @@
 import { Outlet, useLoaderData } from 'react-router-dom';
 import Nav from '../components/Nav/Nav'
+import StarshipCard from '../components/StarshipCard/StarshipCard'
 import {getStarships} from "../services/sw_api"
 
 
@@ -19,7 +20,17 @@ export default function Root() {
             <Nav/>
             <div className="page">
                 <div className="side-nav">
-                    <h1>{starShips}</h1> 
+
+                    { (starShips && starShips.results.length) ? (
+                        <ul>
+                          {
+                                starShips.results.map((ship) => (
+                                <li key={ship.uid}>{ship.name}</li>
+                                ))
+                          }  
+                        </ul>
+                        
+                    ) : ( <p> Loading... </p> )}
                 </div>
                 <div className="main"><Outlet /></div>
                 
